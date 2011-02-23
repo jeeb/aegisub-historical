@@ -39,13 +39,23 @@
 
 // Build credit: Set this to a string with your name as you want it to appear on the program
 #ifndef BUILD_CREDIT
-#define BUILD_CREDIT "Anonymous"
+#define BUILD_CREDIT "JEEB"
 #endif
 
 
 // Endianness: We don't support any Windows version that runs on big endian
 #define HAVE_LITTLE_ENDIAN
 #undef HAVE_BIG_ENDIAN
+
+// Fix MSVS2010 compilation
+// Remember to add the output folders of these libs
+// to the library folders of the aegisub project.
+#if (defined(_MSC_VER) && _MSC_VER >= 1600)
+# pragma comment(lib, "libhunspell_2008.lib")
+# pragma comment(lib, "csri_2008.lib")
+# pragma comment(lib, "universalcharset_2008.lib")
+# pragma comment(lib, "lua51_vc9.lib")
+#endif
 
 
 ////////////// HIGH PRIORITY /////////////
@@ -107,9 +117,9 @@
 #define WITH_FREETYPE2
 #ifdef WITH_FREETYPE2
 # ifndef _DEBUG
-#  pragma comment(lib,"freetype235.lib")
+#  pragma comment(lib,"freetype244MT.lib")
 # else
-#  pragma comment(lib,"freetype235_D.lib")
+#  pragma comment(lib,"freetype244MT_D.lib")
 # endif
 #endif
 
@@ -122,12 +132,12 @@
 
 // Enable Automation 3
 // Requires: auto3 dll (in repository), Lua 5.0 (in repository)
-#define WITH_AUTO3
+//#define WITH_AUTO3
 
 
 // Enable ffmpegsource video and audio providers
 // Requires: ffmpegsource version 2 .lib file
-//#define WITH_FFMPEGSOURCE
+#define WITH_FFMPEGSOURCE
 #ifdef WITH_FFMPEGSOURCE
 # pragma comment(lib, "ffms2.lib")
 #endif
