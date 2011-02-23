@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PreBuildEvent>
+      <Command>if not exist "..\..\src\config\config_windows.h" (copy "..\..\src\config\config_windows0.h" "..\..\src\config\config_windows.h")
+SubWCRev.exe "..\..\src" "..\svn-revision-base.h" "..\svn-revision.h"
+</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+</Project>

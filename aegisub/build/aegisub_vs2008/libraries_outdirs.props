@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <LibraryOutDir>$(SolutionDir)lib/$(Platform)/$(Configuration)/</LibraryOutDir>
+    <ExecutableOutDir>$(SolutionDir)bin/</ExecutableOutDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <_PropertySheetDisplayName>standard_outdirs</_PropertySheetDisplayName>
+    <OutDir>$(SolutionDir)build/$(ProjectName)/$(PlatformName)/$(Configuration)/\</OutDir>
+    <IntDir>$(OutDir)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <OutputFile>
+      </OutputFile>
+      <AdditionalLibraryDirectories>$(LibraryOutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>$(LibraryOutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibraryOutDir">
+      <Value>$(LibraryOutDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ExecutableOutDir">
+      <Value>$(ExecutableOutDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
