@@ -47,6 +47,10 @@
 //////////////////////////////////
 #if __VISUALC__ >= 1200
 
+#ifndef _DEBUG
+# undef __WXDEBUG__
+#endif
+
 /////////////
 // wxWidgets
 #ifdef __WXDEBUG__
